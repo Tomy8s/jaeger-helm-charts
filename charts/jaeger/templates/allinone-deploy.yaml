@@ -104,6 +104,8 @@ spec:
             - name: strategies
               mountPath: /etc/conf/
         {{- end }}
+          securityContext:
+            {{- toYaml .Values.allInOne.securityContext | nindent 12 }}
       serviceAccountName: {{ template "jaeger.fullname" . }}
     {{- if .Values.allInOne.samplingConfig}}
       volumes:
@@ -115,4 +117,6 @@ spec:
       nodeSelector:
         {{- toYaml . | nindent 8 }}
     {{- end }}
+      securityContext:
+        {{- toYaml .Values.collector.podSecurityContext | nindent 8 }}
 {{- end -}}

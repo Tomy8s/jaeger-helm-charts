@@ -68,6 +68,8 @@ allInOne:
   #     cpu: 256m
   #     memory: 128Mi
   nodeSelector: {}
+  securityContext: {}
+  podSecurityContext: {}
 
 storage:
   # allowed values (cassandra, elasticsearch)
